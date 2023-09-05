@@ -1,6 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask
 from weather import get_weather
-import requests
 
 app = Flask(__name__)
 
