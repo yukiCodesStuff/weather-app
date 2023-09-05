@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 from weather import get_weather
 
 app = Flask(__name__)
@@ -21,12 +21,15 @@ def playing(city):
 def playingish():
     return "Forgot to give a city :P"
 
-@app.route('/weather/<city>')
-def weather(city):
+@app.route('/weather')
+def weather():
+
+    city = request.args.get("city")
 
     weather_data = get_weather(city)
 
     if not weather_data:
         return "Failed to get weather data"
 
-    return weather_data
+    # return weather_data
+    return render_template('index.html', weather_data=weather_data)

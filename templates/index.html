@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h2>Weather</h2>
+    <form action="/weather" method="get">
+        <label for="city">Enter city name:</label>
+        <input type="text" name="city" id="city" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    <div id="weather-data">
+        <p>
+            {{ weather_data }}
+        </p>
+    </div>
 </body>
 </html>
