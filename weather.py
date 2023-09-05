@@ -52,11 +52,12 @@ def parse_json(data):
     descr = data["weather"][0]["description"]
     sunrise = data["sys"]["sunrise"]
     sunset = data["sys"]["sunset"]
+
     return [
-        str(KtoF(temp)) + "F", 
-        str(KtoF(feels_like)) + "F", 
-        str(KtoF(temp_min)) + "F", 
-        str(KtoF(temp_max)) + "F", 
+        "{:.2f}".format(KtoF(temp)) + "F", 
+        "{:.2f}".format(KtoF(feels_like)) + "F", 
+        "{:.2f}".format(KtoF(temp_min)) + "F", 
+        "{:.2f}".format(KtoF(temp_max)) + "F", 
         humidity, descr, secondsToDate(sunrise), secondsToDate(sunset)]
 
 def secondsToDate(s):
