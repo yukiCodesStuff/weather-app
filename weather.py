@@ -2,22 +2,18 @@ import requests
 import os
 from dotenv import load_dotenv
 from datetime import timedelta
-from flask import Flask, render_template
 
-def get_weather():
+def get_weather(city):
     # Retrieving API key for OpenWeather app
     load_dotenv(dotenv_path=".env")
     api_key = os.getenv("API_KEY")
-
-    city = input('Enter city name: ')
 
     url = f'http://api.openweathermap.org/geo/1.0/direct?q={city}&appid={api_key}'
 
     response = requests.get(url)
     if response.status_code != 200:
         print(response.status_code)
-        return
-        
+        return None
 
     data = response.json()
     latitude = data[0]["lat"]
@@ -30,12 +26,13 @@ def get_weather():
     print(url)
     response = requests.get(url)
     if response.status_code != 200:
-        print(response.status_code, "2nd one")
-        return
+        return None
         
     weather_data = response.json()
     parsed_weather_data = parse_json(weather_data)
     print(parsed_weather_data)
+
+    return weather_data
 
 def KtoC(temp):
     return temp - 273.15
