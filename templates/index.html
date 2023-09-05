@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <h2>Weather</h2>
-    <form action="/weather" method="get">
-        <label for="city">Enter city name:</label>
-        <input type="text" name="city" id="city" required>
-        <button type="submit">Get Weather</button>
-    </form>
-
+    <div class="input-container">
+        <h2 class="weather-heading">
+            Weather
+        </h2>
+        <form action="/weather" method="get" class="input-form">
+            <label class="input-item" for="city">Enter city name:</label>
+            <input class="input-item input-input" type="text" name="city" id="city" required>
+            <button class="input-item input-button" type="submit">Get Weather</button>
+        </form>
+    </div>
+        
     <div id="weather-data">
         <p>
             {{ weather_data }}
