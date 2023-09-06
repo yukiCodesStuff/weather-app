@@ -1,4 +1,21 @@
-# weather-app
+# Basic Weather App using Flask
 
-Run with 'python -m flask run'
-Find on specified local host port
+## [www.guthib.com] Video (Coming Soon)
+
+## Description
+
+## Usage
+
+Go to the command line and run the command 
+
+```
+pip install Flask
+```
+
+Then navigatre to the directory containing the app.py file and run with
+
+```
+python -m flask run
+```
+
+Then navigate to the port where the app is being exposed and tada!
