@@ -42,14 +42,19 @@ Activate environment
 . weather-app/bin/activate
 ```
 
-Install flask
+Install flask (if you do not already have it)
 ```
 pip install Flask
 ```
 
+cd into weather-app
+```
+cd weather-app
+```
+
 Set the flask app environment variable
 ```
-export FLASK_APP=hello.py
+export FLASK_APP=app.py
 ```
 
 Run application
