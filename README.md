@@ -62,4 +62,4 @@ Run application
 flask run
 ```
 
-Then find the app runnning on the specified port!
+navigate to [http://127.0.0.1:5000/weather]
