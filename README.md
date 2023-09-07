@@ -6,7 +6,7 @@
 
 ## Usage
 
-# Windows
+### Windows
 
 Go to the command line and run the command 
 
@@ -22,7 +22,7 @@ python -m flask run
 
 Then navigate to the port where the app is being exposed and tada!
 
-# Mac
+### Mac
 
 To run this on Mac, you'll first need to install flask [https://phoenixnap.com/kb/install-flask]
 
