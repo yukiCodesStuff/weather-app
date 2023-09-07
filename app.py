@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-from weather import get_weather
+from flask import Flask, render_template, request, url_for
+from weather import get_weather, parse_json
 
 app = Flask(__name__)
 
@@ -32,4 +32,4 @@ def weather():
         return "Failed to get weather data"
 
     # return weather_data
-    return render_template('index.html', weather_data=weather_data)
+    return render_template('index.html', weather_data=parse_json(weather_data))

@@ -3,11 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Document</title>
+    <style>
+
+        body {
+            /* background-image: url("../images/weather-bkg-image.avif"); */
+            background-image: url("{{ url_for('static', filename='images/weather-bkg-image.avif') }}");
+            background-repeat: none;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .input-form {
+            display: flex;
+            flex-direction: column;
+            border: none;
+            padding: 20px;
+        }
+
+        .input-container {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .input-item {
+            margin: 10px 100px;
+        }
+
+        .input-input {
+            padding: 1rem 1rem;
+            border: solid lightgray 1px;
+            border-radius: 25px;
+            transition: all 200ms ease-in-out;
+        }
+
+        .input-input:hover {
+            border: solid rgb(32, 206, 232) 1px;
+        }
+
+        .input-input:active {
+            border: solid lightslategray 1px;
+        }
+
+        .input-button {
+            border: none;
+            background-color: rgb(32, 206, 232);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            justify-content: center;
+            color: white;
+            font-weight: bolder;
+            font-family: inherit;
+            transition: all 200ms ease-in-out;
+        }
+
+        .input-button:hover {
+            cursor: pointer;
+            transform: scale(1, 1.2);
+            background-color: rgb(134, 215, 227);
+        }
+
+        .weather-heading {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #weather-data {
+            padding: 1rem;
+            background-color: white;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+            justify-content: center;
+            align-items: center;
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+    </style>
 </head>
 <body>
     <div class="input-container">
@@ -22,9 +97,42 @@
     </div>
         
     <div id="weather-data">
-        <p>
-            {{ weather_data }}
-        </p>
+        <h3>Weather Data for {{ weather_data['city'] }}</h3>
+        <table class="weather-table">
+            <tr>
+                <th>Temperature</th>
+                <td>{{ weather_data['temperature'] }}</td>
+            </tr>
+            <tr>
+                <th>Feels Like</th>
+                <td>{{ weather_data['feels_like'] }}</td>
+            </tr>
+            <tr>
+                <th>Min Temperature</th>
+                <td>{{ weather_data['temp_min'] }}</td>
+            </tr>
+            <tr>
+                <th>Max Temperature</th>
+                <td>{{ weather_data['temp_max'] }}</td>
+            </tr>
+            <tr>
+                <th>Humidity</th>
+                <td>{{ weather_data['humidity'] }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ weather_data['description'] }}</td>
+            </tr>
+            <tr>
+                <th>Sunrise</th>
+                <td>{{ weather_data['sunrise'] }}</td>
+            </tr>
+            <tr>
+                <th>Sunset</th>
+                <td>{{ weather_data['sunset'] }}</td>
+            </tr>
+        </table>
     </div>
+    
 </body>
 </html>

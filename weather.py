@@ -1,7 +1,7 @@
 import requests
 import os
 from dotenv import load_dotenv
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 def get_weather(city):
     # Retrieving API key for OpenWeather app
@@ -42,20 +42,25 @@ def KtoF(temp):
 
 def parse_json(data):
     temp = data["main"]["temp"]
-    feels_like = data["main"]["temp"]
-    temp_min = data["main"]["temp"]
-    temp_max = data["main"]["temp"]
-    humidity = data["main"]["temp"]
+    feels_like = data["main"]["feels_like"]
+    temp_min = data["main"]["temp_min"]
+    temp_max = data["main"]["temp_max"]
+    humidity = data["main"]["humidity"]
     descr = data["weather"][0]["description"]
     sunrise = data["sys"]["sunrise"]
     sunset = data["sys"]["sunset"]
 
-    return [
-        "{:.2f}".format(KtoF(temp)) + "F", 
-        "{:.2f}".format(KtoF(feels_like)) + "F", 
-        "{:.2f}".format(KtoF(temp_min)) + "F", 
-        "{:.2f}".format(KtoF(temp_max)) + "F", 
-        humidity, descr, secondsToDate(sunrise), secondsToDate(sunset)]
+    return {
+        'temperature': "{:.2f}".format(KtoF(temp)) + "°F",
+        'feels_like': "{:.2f}".format(KtoF(feels_like)) + "°F",
+        'temp_min': "{:.2f}".format(KtoF(temp_min)) + "°F",
+        'temp_max': "{:.2f}".format(KtoF(temp_max)) + "°F",
+        'humidity': f"{humidity}%",
+        'description': descr,
+        'sunrise': "{} AM".format(datetime.fromtimestamp(sunrise)),
+        'sunset': "{} PM".format(datetime.fromtimestamp(sunset)),
+        'city': data["name"]
+    }
 
 def secondsToDate(s):
     return timedelta(seconds=s)
