@@ -6,6 +6,12 @@
 
 ## Usage
 
+Before you can use this app, you must first create an account with [https://openweathermap.org/] and get an API key. Input this API key into a .env file inside the directory in the format
+
+```
+API_KEY = "<API key goes here>"
+```
+
 ### Windows
 
 Go to the command line and run the command 
