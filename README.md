@@ -12,7 +12,7 @@ Before you can use this app, you must first create an account with [https://open
 API_KEY = "<API key goes here>"
 ```
 
-### Windows
+### Windows (Does not currently)
 
 Go to the command line and run the command 
 
